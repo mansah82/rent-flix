@@ -23,7 +23,7 @@ const HomePage = () => {
            </div>
            <div className='column'>
                <h2>Column 1</h2>
-                <p>Helloooo</p>
+                <p>wgajoejfioerjf</p>
            </div>
            <div className='column'>
                <h2>Column 1</h2>
