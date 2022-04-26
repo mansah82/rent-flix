@@ -1,1 +1,26 @@
+* {
+    box-sizing: border-box;
+    
+}
 
+.column{
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+@media  screen and (max-width: 1000px) {
+    .column{
+        width: 100%;
+    }
+}
+
+.movie-poster{
+    max-width: 20em;
+    max-height: 20em;
+}

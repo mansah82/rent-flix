@@ -1,16 +1,23 @@
 import { Component } from 'react';
+import { useDispatch } from 'react-redux';
 import './css/dropDownMenu.css'
+import { fetchFreeSearch } from './MoviesPage';
+import { useState } from 'react';
 
 
 
 
 const DropDownMenu = () => {
 
+    const [input, setInput] = useState("");
+
+    const dispatch = useDispatch();
 
     return (
         <div className='div-search'>
              <div>
- <input className='input' type="text" placeholder="Search.." />
+             <input className="input" type="text" onInput={e => setInput(e.target.value)} placeholder="Search..." />
+             <button onClick={() => fetchFreeSearch(dispatch, input)} >Search</button>
         </div>
       
         <div className="dropMenu">
