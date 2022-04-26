@@ -4,7 +4,7 @@ import HomePage from './components/HomePage';
 import MoviesPage from './components/MoviesPage';
 import InfoMoviePage from './components/InfoMoviePage';
 import ShoppingCart from './components/ShoppingCart';
-import NavBar from './components/NavBar';
+import NavBar from './components/navigation/NavBar';
 import { HashRouter as Router, Route, Routes} from 'react-router-dom' 
 
 
