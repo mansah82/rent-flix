@@ -1,0 +1,65 @@
+
+.dropButton {
+    background-color: #e00404;
+    color: white;
+    padding-left: 5px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    border: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .dropMenu {
+    position: relative;
+    /* display: inline-block; */
+    float : right;
+   
+    
+  }
+
+  .dropContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropContent p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropMenu:hover .dropContent {display: block;}
+
+  .dropContent p:hover {background-color: #ddd;}
+
+  .dropMenu:hover .dropButton {background-color: #3e8e41;}
+
+  .input{
+    position: relative;
+    float: right;
+    background-color: #e00404;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 5px;
+    font-size: 12;
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+
+}
+.div-search{
+    position: relative;
+    /* display: inline-block; */
+    float : right;
+    margin-right: 40px;
+}
+
+  
