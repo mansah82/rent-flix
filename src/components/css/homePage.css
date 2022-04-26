@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    
 }
 
 .column{
@@ -13,8 +14,13 @@
     display: table;
     clear: both;
 }
-@media  screen and (max-width: 600px) {
+@media  screen and (max-width: 1000px) {
     .column{
         width: 100%;
     }
+}
+
+.movie-poster{
+    max-width: 20em;
+    max-height: 20em;
 }
