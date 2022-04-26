@@ -1,0 +1,64 @@
+.links {
+    font-size: 3rem;
+    text-decoration: none;
+    margin: 0 6rem;
+    color: white;
+}
+
+#hamburger {
+    color: white;
+    margin-right: 1rem;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 25px;
+}
+
+#mobileNav {
+    display: flex;
+    align-items: center;
+}
+
+/* NavLink active class */
+.active {
+    color: salmon;
+    border-bottom: 5px solid white;
+}
+
+@media (max-width: 1400px) {
+    .links {
+        font-size: 2rem;
+        margin: 0 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    #normalLinks {
+        display: none;
+    }
+
+    #mobileLinks {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: rgb(40, 44, 52, 0.75);
+        border-top: 4px solid salmon;
+        border-radius: 0 0 0 20px;
+        right: 0;
+        top: 92px;
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    .links {
+        margin: 0.25rem 2rem;
+        font-size: 1.5rem;
+    }
+
+    .active {
+        border-width: 3px;
+    }
+}
