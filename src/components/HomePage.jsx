@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, STATUS } from '../feautures/popularMovies';
 
-const HomePage = () => {
+const HomePage = ({setMovie}) => {
 
     const status = useSelector(state => state.popularMovies.status);
     const movie = useSelector(state => state.popularMovies.movie);
@@ -27,7 +27,7 @@ const HomePage = () => {
 
         popularContent = movie.map((mov) => (
             
-            <div key={mov.id} className="column">
+            <div key={mov.id} className="column" onClick={() => setMovie(mov)}>
                 <div className='row'>
                 <img className='movie-poster' src = {picturePath + mov.poster_path}   />
                 <p className='movie-title'>{mov.title}</p>

@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text {
+    font-size: 20px;
+    padding-left: 30px;
+    color: white;
+    
+  }
+
+.poster {
+    width: 25em;
+    height: 35em;
+    float: left;
+    margin-left: 50px;
+    margin-top: 120px;
+}
+
+
+
+@media  screen and (max-width: 1000px) {
+    .container{
+        width: 100%;
+    }
+}
