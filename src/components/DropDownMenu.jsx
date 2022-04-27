@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import './css/dropDownMenu.css'
 import { fetchFreeSearch } from './MoviesPage';
 import { useState } from 'react';
+import { genresFetching } from './MoviesPage';
 
 
 
@@ -10,14 +11,16 @@ import { useState } from 'react';
 const DropDownMenu = () => {
 
     const [input, setInput] = useState("");
+ 
+    let genre = ""
 
     const dispatch = useDispatch();
 
     return (
         <div className='div-search'>
              <div>
-             <input className="input" type="text" onInput={e => setInput(e.target.value)} placeholder="Search..." />
-             <button onClick={() => fetchFreeSearch(dispatch, input)} >Search</button>
+             <input className="input" type="text" onInput={e => setInput(e.target.value)} 
+             onChange={() => fetchFreeSearch(dispatch, input)} placeholder="Search..." />
         </div>
       
         <div className="dropMenu">
@@ -27,11 +30,16 @@ const DropDownMenu = () => {
             <button className="dropButton">Category  <i style={{ marginLeft: '2rem' }} className="fa fa-caret-down"></i></button>
 
             <div className="dropContent">
-                <p>Horror</p>
-                <p>Comedy</p>
-                <p>Drama</p>
-                <p>Family</p>
-                <p>Cartoons</p>
+                <p onClick={() => genresFetching(dispatch, genre=27)}>Horror</p>
+                <p onClick={() => genresFetching(dispatch, genre=28)}>Action</p>
+                <p onClick={() => genresFetching(dispatch, genre=12)}>Adventure</p>
+                <p onClick={() => genresFetching(dispatch, genre=16)}>Animation</p>
+                <p onClick={() => genresFetching(dispatch, genre=35)}>Comedy</p>
+                <p onClick={() => genresFetching(dispatch, genre=10751)}>Family</p>
+                <p onClick={() => genresFetching(dispatch, genre=80)}>Crime</p>
+                <p onClick={() => genresFetching(dispatch, genre=10749)}>Romance</p>
+                <p onClick={() => genresFetching(dispatch, genre=10752)}>War</p>
+                <p onClick={() => genresFetching(dispatch, genre=878)}>S.F</p>
             </div>
         </div>
 
@@ -39,19 +47,6 @@ const DropDownMenu = () => {
        
     )
 
-}
-
-class App extends Component {
-    state = {
-        open: false,
-    };
-   handleButtonClick = () => {
-        this.setState((state) => {
-            return {
-                open: !state.open
-            };
-        });
-    };
 }
 
 export default DropDownMenu;

@@ -1,12 +1,12 @@
 * {
     box-sizing: border-box;
-    
+   
 }
 
 .column{
     float: left;
     width: 25%;
-    padding: 10px;
+    
 }
 
 .row:after{
@@ -23,4 +23,22 @@
 .movie-poster{
     max-width: 20em;
     max-height: 20em;
+}
+
+.movies_page{
+    margin-top: 5%;
+}
+
+.dropdown-div{
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+
+}
+@media  screen and (max-width: 1000px) {
+    .dropdown-div{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }
