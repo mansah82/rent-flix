@@ -28,11 +28,11 @@ const MoviesPage = () => {
     } else if (status === STATUS.SUCCESS) {
 
         freeSearchContent = movie.map((mov) => (
-            
+
             <div key={mov.id} className="column">
                 <div className='row'>
-                <img className='movie-poster' src = {picturePath + mov.poster_path}   />
-                <p className='movie-title'>{mov.title}</p>
+                    <img className='movie-poster' src={picturePath + mov.poster_path} />
+                    <p className='movie-title'>{mov.title}</p>
                 </div>
             </div>
         ))
@@ -43,15 +43,15 @@ const MoviesPage = () => {
 
     return (
 
-        <div>
-            <div>
+        <div className='movies_page'>
+            <div className='dropdown-div'>
                 <DropDownMenu />
             </div>
-           
+
 
             <div className="row">
-            {freeSearchContent}
-        </div>
+                {freeSearchContent}
+            </div>
 
         </div>
 
@@ -59,10 +59,51 @@ const MoviesPage = () => {
 }
 
 async function fetchFreeSearch(dispatch, input) {
-    
+
+    dispatch(actions.isFetching());
+    if (input !== "") {
+        let url = `https://api.themoviedb.org/3/search/movie?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&query=${input}&page=1&include_adult=false`
+        try {
+            let respone = await fetch(url);
+            let data = await respone.json();
+
+            console.log('got data', data)
+
+            let movie = data.results;
+            dispatch(actions.success(movie));
+            console.log('results', movie)
+
+        } catch {
+
+            dispatch(actions.failure());
+
+        }
+
+    } else {
+        const url = 'https://api.themoviedb.org/3/movie/popular?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&page=1'
+        try {
+            let respone = await fetch(url);
+            let data = await respone.json();
+
+            console.log('got data', data)
+
+            let movie = data.results;
+            dispatch(actions.success(movie));
+            console.log('results', movie)
+
+        } catch {
+
+            dispatch(actions.failure());
+
+        }
+    }
+};
+
+async function genresFetching(dispatch, genre) {
+
     dispatch(actions.isFetching());
 
-   let url = `https://api.themoviedb.org/3/search/movie?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&query=${input}&page=1&include_adult=false`
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}&with_watch_monetization_types=flatrate`
 
     try {
         let respone = await fetch(url);
@@ -70,16 +111,18 @@ async function fetchFreeSearch(dispatch, input) {
 
         console.log('got data', data)
 
-        let movie = data.results;
-        dispatch(actions.success(movie));
-        console.log('results', movie)
-    
+        let genres = data.results;
+        dispatch(actions.success(genres));
+        console.log('genres', genres)
+
     } catch {
 
         dispatch(actions.failure());
-    
-    } 
+
+    }
 };
+
+export { genresFetching };
 
 export { fetchFreeSearch };
 

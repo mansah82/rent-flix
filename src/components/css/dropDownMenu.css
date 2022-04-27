@@ -1,6 +1,6 @@
 
 .dropButton {
-    background-color: #e00404;
+    background-color: salmon;
     color: white;
     padding-left: 5px;
     padding-right: 10px;
@@ -16,6 +16,8 @@
     position: relative;
     /* display: inline-block; */
     float : right;
+    margin-top: 5%;
+
    
     
   }
@@ -45,7 +47,7 @@
   .input{
     position: relative;
     float: right;
-    background-color: #e00404;
+    background-color: salmon;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     padding: 5px;
@@ -60,6 +62,17 @@
     /* display: inline-block; */
     float : right;
     margin-right: 40px;
+    margin-top: 10%;
+}
+
+@media  screen and (max-width: 1000px) {
+  .dropMenu{
+      margin-top: 3%;
+     
+  }
+  .div-search{
+    margin-top: 20%;
+  }
 }
 
   
