@@ -14,7 +14,7 @@
     display: table;
     clear: both;
 }
-@media  screen and (max-width: 1000px) {
+@media screen and (max-width: 500px) {
     .column{
         width: 100%;
     }
@@ -23,4 +23,8 @@
 .movie-poster{
     max-width: 20em;
     max-height: 20em;
+}
+
+.movie-title {
+    color: white;
 }
