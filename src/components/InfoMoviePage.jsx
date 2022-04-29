@@ -13,8 +13,10 @@ const InfoMoviePage = ({activeMovie}) => {
             <div className='text'>
                 <h1>{activeMovie.title}</h1>
                 <p>Release date: {activeMovie.release_date}</p>
-                <p>{activeMovie.overview}</p>
                 <h3>Rating: {activeMovie.vote_average}</h3>
+                <hr color='red'></hr>
+                <p>{activeMovie.overview}</p>
+                
             </div>
             
         </div>
