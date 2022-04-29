@@ -14,11 +14,9 @@
     display: table;
     clear: both;
 }
-@media screen and (max-width: 500px) {
-    .column{
-        width: 100%;
-    }
-}
+
+
+
 
 .movie-poster{
     max-width: 20em;
@@ -28,3 +26,32 @@
 .movie-title {
     color: white;
 }
+
+.welcome-text{
+    margin-top: 5em;
+    color: white;
+    font-size: xx-large;
+    margin-bottom: 5em;
+ 
+}
+
+.welcome-text-line{
+    text-decoration: underline;
+    text-decoration-color: salmon;
+    text-underline-offset: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .column{
+        width: 100%;
+    }
+
+    .welcome-text{
+        font-size: 1.5rem;
+        
+    }
+}
+
+
+
+
