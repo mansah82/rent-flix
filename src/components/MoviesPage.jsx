@@ -47,11 +47,13 @@ const MoviesPage = () => {
             <div className='dropdown-div'>
                 <DropDownMenu />
             </div>
-
-
             <div className="row">
+
                 {freeSearchContent}
+
             </div>
+
+
 
         </div>
 
