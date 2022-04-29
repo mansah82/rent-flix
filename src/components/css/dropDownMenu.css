@@ -1,78 +1,92 @@
-
 .dropButton {
-    background-color: salmon;
-    color: white;
-    padding-left: 5px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 12px;
-    border: none;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-  }
+  background-color: salmon;
+  color: white;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  border: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  
+}
 
+.dropMenu {
+  position: relative;
+  float: right;
+  margin-top: 5%;
+}
+
+.dropContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+.dropContent p {
+  color: black;
+  padding: 6px 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropMenu:hover .dropContent {
+  display: block;
+}
+
+.dropContent p:hover {
+  background-color: #ddd;
+}
+
+.dropMenu:hover .dropButton {
+  background-color: #3e8e41;
+}
+
+.input {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  float: right;
+  background-color: salmon;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 5px;
+  font-size: 12;
+  color: white;
+  margin-bottom: 10px;
+  border: none;
+
+}
+
+.div-search {
+  position: relative;
+  margin-right: 40px;
+  margin-top: 10%;
+
+}
+
+@media screen and (max-width: 1000px) {
   .dropMenu {
-    position: relative;
-    /* display: inline-block; */
-    float : right;
     margin-top: 5%;
 
-   
-    
   }
 
-  .dropContent {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
-  .dropContent p {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropMenu:hover .dropContent {display: block;}
-
-  .dropContent p:hover {background-color: #ddd;}
-
-  .dropMenu:hover .dropButton {background-color: #3e8e41;}
-
-  .input{
-    position: relative;
-    float: right;
-    background-color: salmon;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    padding: 5px;
-    font-size: 12;
-    color: white;
-    margin-bottom: 10px;
-    border: none;
-
-}
-.div-search{
-    position: relative;
-    /* display: inline-block; */
-    float : right;
-    margin-right: 40px;
-    margin-top: 10%;
-}
-
-@media  screen and (max-width: 1000px) {
-  .dropMenu{
-      margin-top: 3%;
-     
-  }
-  .div-search{
-    margin-top: 20%;
+  .div-search {
+    margin-top: 30%;
   }
 }
 
-  
+.input-icons i {
+  position: absolute;
+  left: 0;
+  padding: 5px;
+  margin-left: 80%;
+}
+
+.input-icons {
+  position: relative;
+}
