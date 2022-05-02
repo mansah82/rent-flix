@@ -1,6 +1,13 @@
 #homePage {
-    background-color: lightblue;
     margin: 4rem;
+}
+
+#categoryTitle {
+    margin: 30% 0 2rem 0;
+    text-align: left;
+    border-bottom: 4px solid white;
+    color: white;
+    font-weight: normal;
 }
 
 #movieContainer {
@@ -8,15 +15,21 @@
     gap: 3rem;
     display: grid;
     justify-content: center;
-    background-color: blue;
     grid-template-columns: repeat(auto-fill, minmax(8rem, 20rem));
 }
 
 .movieCard {
     list-style: none;
-    background-color: purple;
-    border-radius: 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 0 0 1rem 1rem;
+    transition: all 200ms linear;
     padding: 0.5rem;
+}
+
+.movieCard:hover {
+    background-color: rgb(250, 128, 114, 0.75);
+    box-shadow: rgb(250, 128, 114, 0.75) 0px 0px 20px;
+    padding: 0.75rem 0.75rem 0.75rem;
 }
 
 .movieImage {
@@ -25,27 +38,27 @@
 }
 
 .movieCard h3 {
-    background-color: lightgreen;
-    justify-content: center;
-    align-items: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1.25rem;
+    color: white;
+    font-weight: normal;
+    padding: 0 10px;
 }
 
 .movieCard :link {
     text-decoration: none;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    border-width: 0;
 }
 
 @media screen and (max-width: 900px) {
     #movieContainer {
-        background-color: red;
         grid-template-columns: repeat(2, 15rem);
+    }
+
+    #categoryTitle {
+        border-width: 2px;
+        font-size: 1.5rem;
     }
 
     .movieCard h3 {
@@ -58,6 +71,11 @@
 }
 
 @media screen and (max-width: 600px) {
+    #categoryTitle {
+        font-size: 1.25rem;
+        margin: 30% 2rem 1rem 2rem;
+    }
+
     #movieContainer {
         grid-template-columns: repeat(2, minmax(5rem, 10rem));
         gap: 1rem;
