@@ -23,3 +23,9 @@ header {
         max-height: 60px;
     }
 }
+
+@media (max-width: 600px) {
+    #logoImage {
+        max-height: 50px;
+    }
+}
