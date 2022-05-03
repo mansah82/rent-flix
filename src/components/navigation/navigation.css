@@ -46,7 +46,7 @@
         border-top: 4px solid salmon;
         border-radius: 0 0 0 20px;
         right: 0;
-        top: 92px;
+        top: 100%;
     }
 
     #hamburger {
@@ -60,5 +60,11 @@
 
     .active {
         border-width: 3px;
+    }
+}
+
+@media (max-width: 600px) {
+    #hamburger {
+        width: 30px;
     }
 }
