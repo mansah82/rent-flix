@@ -3,7 +3,7 @@
 }
 
 #categoryTitle {
-    margin: 30% 0 2rem 0;
+    margin: 10% 0 2rem 0;
     text-align: left;
     border-bottom: 4px solid white;
     color: white;
@@ -91,11 +91,9 @@
 }
 
 .welcome-text {
-    margin-top: 5em;
+    margin-top: 20rem;
     color: white;
     font-size: xx-large;
-    margin-bottom: 5em;
- 
 }
 
 .welcome-text-line {
@@ -105,12 +103,12 @@
 }
 
 @media screen and (max-width: 500px) {
-    .column{
+    .column {
         width: 100%;
     }
 
-    .welcome-text{
+    .welcome-text {
         font-size: 1.5rem;
-        
+
     }
 }
