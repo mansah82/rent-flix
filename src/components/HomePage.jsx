@@ -41,6 +41,12 @@ const HomePage = ({ setMovie }) => {
 
     return (
         <div id='homePage'>
+            <div className='welcome-text'>Choose between 1000+ Films
+                <div className='welcome-text-line'>
+                    For Your Movie Night!
+                </div>
+            </div>
+
             <h1 id='categoryTitle'>Popular</h1>
             <section id='movieContainer'>
                 {popularContent}
