@@ -45,61 +45,10 @@ const HomePage = ({setMovie}) => {
 
  
     return(
-        <Link to={"/info"}>
-            
-            
+        <Link to={"/info"}>   
         <div className="row">
             {popularContent}
         </div>
-
-            
-        
-        {/* <div className='row' >
-           <div className='column' >
-                <h2>{popularContent[0].title}</h2>
-                <p>Helloooo</p>
-            </div>
-           <div className='column'>
-               <h2>{popularContent[1].title}</h2>
-                <p>Helloooo</p>
-           </div>
-           <div className='column'>
-             
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>wgajoejfioerjf</p>
-           </div>
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-           
-           <div className='column'>
-               <h2>Column 1</h2>
-                <p>Helloooo</p>
-           </div>
-
-
-       </div>  */}
        </Link>
 
     )
