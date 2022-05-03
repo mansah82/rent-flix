@@ -3,9 +3,10 @@ import DropDownMenu from './DropDownMenu';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, STATUS } from '../feautures/freeSearch';
+import { Link } from 'react-router-dom';
 
 
-const MoviesPage = () => {
+const MoviesPage = ({setMovie}) => {
 
     const status = useSelector(state => state.freeSearch.status);
     const movie = useSelector(state => state.freeSearch.movie);
@@ -29,7 +30,7 @@ const MoviesPage = () => {
 
         freeSearchContent = movie.map((mov) => (
 
-            <div key={mov.id} className="column">
+            <div key={mov.id} className="column" onClick={() => setMovie(mov)}>
                 <div className='row'>
                     <img className='movie-poster' src={picturePath + mov.poster_path} />
                     <p className='movie-title'>{mov.title}</p>
@@ -41,22 +42,23 @@ const MoviesPage = () => {
         freeSearchContent = 'Movies unanvalible'
     }
 
-    return (
-
+    return (   
         <div className='movies_page'>
             <div className='dropdown-div'>
                 <DropDownMenu />
             </div>
+
+            <Link to={"/info"}>
+
             <div className="row">
 
                 {freeSearchContent}
 
             </div>
 
-
+            </Link>
 
         </div>
-
     )
 }
 

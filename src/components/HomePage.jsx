@@ -39,6 +39,7 @@ const HomePage = ({ setMovie }) => {
         fetchPopularMovies(dispatch);
     }, [])
 
+
     return (
         <div id='homePage'>
             <div className='welcome-text'>Choose between 1000+ Films
@@ -46,6 +47,7 @@ const HomePage = ({ setMovie }) => {
                     For Your Movie Night!
                 </div>
             </div>
+
 
             <h1 id='categoryTitle'>Popular</h1>
             <section id='movieContainer'>
