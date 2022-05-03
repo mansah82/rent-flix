@@ -53,8 +53,6 @@ const MoviesPage = ({setMovie}) => {
             </div>
             </Link>
         </div>
-        
-
     )
 }
 
