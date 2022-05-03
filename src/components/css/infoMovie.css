@@ -25,8 +25,44 @@
 
 
 
-@media  screen and (max-width: 1000px) {
-    .container{
+@media  screen and (max-width: 900px) {
+      .container{
+      overflow-x: hidden;
         width: 100%;
     }
+
+    .text{
+    margin-top: 60px;
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    }
+
+    .poster{
+      width: 18em;
+      height: 30em;
+      float: left;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+      width:100%;
+    }
+
+    .text {
+      margin-top: 10em;
+      font-size: 13px;
+      padding-left: 20px;
+      padding-right: 20px;
+      
+    }
+
+    .poster{
+      width: 15em;
+      height: 25em;
+      float: left;
+    }
+
 }
