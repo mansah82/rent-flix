@@ -1,6 +1,7 @@
 header {
     background-color: rgb(40, 44, 52, 0.75);
     display: flex;
+    z-index: 1;
     align-items: center;
     min-height: 90px;
     padding: 1rem;
@@ -21,5 +22,11 @@ header {
 @media (max-width: 1400px) {
     #logoImage {
         max-height: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    #logoImage {
+        max-height: 50px;
     }
 }

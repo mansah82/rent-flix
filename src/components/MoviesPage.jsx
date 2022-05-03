@@ -47,11 +47,17 @@ const MoviesPage = ({setMovie}) => {
             <div className='dropdown-div'>
                 <DropDownMenu />
             </div>
+
             <Link to={"/info"}>
+
             <div className="row">
+
                 {freeSearchContent}
+
             </div>
+
             </Link>
+
         </div>
     )
 }

@@ -5,8 +5,8 @@ import { reducer as freeSearchReducer } from "./freeSearch";
 
 const rootReducer = combineReducers({
 
-    popularMovies : popularMoviesReducer,
-    freeSearch : freeSearchReducer
+    popularMovies: popularMoviesReducer,
+    freeSearch: freeSearchReducer
 
 })
 

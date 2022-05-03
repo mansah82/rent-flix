@@ -5,7 +5,7 @@ import MoviesPage from './components/MoviesPage';
 import InfoMoviePage from './components/InfoMoviePage';
 import ShoppingCart from './components/ShoppingCart';
 import NavBar from './components/navigation/NavBar';
-import { HashRouter as Router, Route, Routes} from 'react-router-dom' 
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState } from 'react';
 
 
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <main>
         <Router>
-        <NavBar />
+          <NavBar />
           <Routes>
             <Route exact path='/' element={<HomePage setMovie={setActiveMovie} />} />
             <Route exact path='/movies' element={<MoviesPage setMovie={setActiveMovie} />} />
