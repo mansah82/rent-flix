@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, STATUS } from '../feautures/popularMovies';
+import Footer from './Footer';
 
 const HomePage = ({ setMovie }) => {
     const status = useSelector(state => state.popularMovies.status);
@@ -53,6 +54,7 @@ const HomePage = ({ setMovie }) => {
             <section id='movieContainer'>
                 {popularContent}
             </section >
+            <Footer/>
         </div >
     )
 }
