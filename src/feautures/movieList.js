@@ -1,15 +1,14 @@
 import { createAction, createReducer } from "@reduxjs/toolkit"
 
-const isFetching = createAction('is fetching4');
-const success = createAction('success4');
-const failure = createAction('failure4');
+const fetching = createAction('fetching');
+const success = createAction('success');
+const failure = createAction('failure');
 
-const actions = { isFetching, success, failure };
-
+const actions = { fetching, success, failure };
 
 const STATUS = {
     NORMAL: 'normal',
-    FETCHING: 'isfetching',
+    FETCHING: 'fetching',
     SUCCESS: 'success',
     FAILURE: 'failure'
 }
@@ -20,8 +19,7 @@ const initialState = {
 }
 
 const reducer = createReducer(initialState, {
-    
-    [isFetching] : (state, action) => ({
+    [fetching] : (state, action) => ({
         ...state,
         status: STATUS.FETCHING
     }),
@@ -34,7 +32,6 @@ const reducer = createReducer(initialState, {
         ...state,
         status: STATUS.FAILURE
     })
-
 })
 
 export { actions , STATUS, reducer }

@@ -1,8 +1,8 @@
 import { createAction, createReducer } from "@reduxjs/toolkit"
 
-const isFetching = createAction('is fetching');
-const success = createAction('success');
-const failure = createAction('failure');
+const isFetching = createAction('is fetching1');
+const success = createAction('success1');
+const failure = createAction('failure1');
 
 const actions = { isFetching, success, failure };
 

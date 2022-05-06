@@ -1,48 +1,54 @@
 import './css/moviePage.css';
-import DropDownMenu from './DropDownMenu';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions, STATUS } from '../feautures/freeSearch';
-import { Link } from 'react-router-dom';
+import { actions } from '../feautures/movieList';
+import fetchMoviesList from '../asyncOperations/apiFetch';
+import DropDownMenu from './DropDownMenu';
 
-
-const MoviesPage = ({setMovie}) => {
-
-    const status = useSelector(state => state.freeSearch.status);
-    const movie = useSelector(state => state.freeSearch.movie);
-
-    const picturePath = "https://image.tmdb.org/t/p/w500/"
-
+const MoviesPage = ({ setMovie }) => {
+    const status = useSelector(state => state.movieList.status);
+    const movie = useSelector(state => state.movieList.movie);
+    const picturePath = "https://image.tmdb.org/t/p/w500/";
 
     const dispatch = useDispatch();
+    let movieListContent = null;
 
-    let freeSearchContent = null;
+    switch (status) {
+        case 'fetching': {
+            // Start loading here
+            break
+        }
 
-    if (status === STATUS.NORMAL) {
+        case 'success': {
+            // Remove loading here
 
-        freeSearchContent = 'Ready for movies'
-
-    } else if (status === STATUS.FETCHING) {
-
-        freeSearchContent = 'fetching movies'
-
-    } else if (status === STATUS.SUCCESS) {
-
-        freeSearchContent = movie.map((mov) => (
-
-            <div key={mov.id} className="column" onClick={() => setMovie(mov)}>
-                <div className='row'>
-                    <img className='movie-poster' src={picturePath + mov.poster_path} />
-                    <p className='movie-title'>{mov.title}</p>
+            movieListContent = movie.map((mov) => (
+                <div key={mov.id} className="column" onClick={() => setMovie(mov)}>
+                    <div className='row'>
+                        <img className='movie-poster' src={picturePath + mov.poster_path} />
+                        <p className='movie-title'>{mov.title}</p>
+                    </div>
                 </div>
-            </div>
-        ))
-    } else {
+            ))
+            break
+        }
 
-        freeSearchContent = 'Movies unanvalible'
+        default: break
     }
 
-    return (   
+    useEffect(() => {
+        if (movieListContent == null) {
+            dispatch(actions.fetching());
+        }
+
+        fetchMoviesList()
+            .then((movies) => {
+                return dispatch(actions.success(movies));
+            })
+    }, [])
+
+    return (
         <div className='movies_page'>
             <div className='dropdown-div'>
                 <DropDownMenu />
@@ -50,11 +56,11 @@ const MoviesPage = ({setMovie}) => {
 
             <Link to={"/info"}>
 
-            <div className="row">
+                <div className="row">
 
-                {freeSearchContent}
+                    {movieListContent}
 
-            </div>
+                </div>
 
             </Link>
 
@@ -64,7 +70,7 @@ const MoviesPage = ({setMovie}) => {
 
 async function fetchFreeSearch(dispatch, input) {
 
-    dispatch(actions.isFetching());
+    dispatch(actions.fetching());
     if (input !== "") {
         let url = `https://api.themoviedb.org/3/search/movie?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&query=${input}&page=1&include_adult=false`
         try {
@@ -105,7 +111,7 @@ async function fetchFreeSearch(dispatch, input) {
 
 async function genresFetching(dispatch, genre) {
 
-    dispatch(actions.isFetching());
+    dispatch(actions.fetching());
 
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}&with_watch_monetization_types=flatrate`
 

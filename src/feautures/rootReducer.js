@@ -1,13 +1,9 @@
 import { combineReducers } from "redux";
-import { reducer as popularMoviesReducer } from "./popularMovies";
-import { reducer as freeSearchReducer } from "./freeSearch";
+import { reducer as moveListReducer } from "./movieList";
 
 
 const rootReducer = combineReducers({
-
-    popularMovies: popularMoviesReducer,
-    freeSearch: freeSearchReducer
-
+    movieList: moveListReducer,
 })
 
 export { rootReducer }
