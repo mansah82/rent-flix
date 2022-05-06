@@ -1,9 +1,26 @@
 import './css/infoMovie.css';
+import { useEffect } from 'react';
 
 
 const InfoMoviePage = ({activeMovie}) => {
 
+
+    
+    let price = 0
+
+    if (activeMovie.vote_average >= 8){
+        price = 49
+    } else if(activeMovie.vote_average >= 7){
+        price = 39
+    } else if(activeMovie.vote_average >= 6){
+        price = 29
+    } else {
+        price = 19
+    }
+
     const picturePath = "https://image.tmdb.org/t/p/w500/"
+
+   
 
     return(
         <div className='container'>
@@ -16,12 +33,21 @@ const InfoMoviePage = ({activeMovie}) => {
                 <h3>Rating: {activeMovie.vote_average}</h3>
                 <hr color='red'></hr>
                 <p>{activeMovie.overview}</p>
+                <h2>Price: {price} Kr</h2>
                 
             </div>
             
         </div>
 
     )
+   
+
+    
+    
+    
+    
 }
+
+
 
 export default InfoMoviePage;
