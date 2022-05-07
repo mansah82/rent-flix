@@ -1,8 +1,6 @@
 import './css/dropDownMenu.css';
 import { useDispatch } from 'react-redux';
-import { fetchFreeSearch } from './MoviesPage';
 import { useState } from 'react';
-import { genresFetching } from './MoviesPage';
 import { fetchMoviesList } from '../asyncOperations/apiFetch';
 import { searchMovies } from '../asyncOperations/apiFetch';
 import { actions } from '../feautures/movieList';
