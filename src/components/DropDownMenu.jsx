@@ -3,30 +3,31 @@ import { useDispatch } from 'react-redux';
 import { fetchFreeSearch } from './MoviesPage';
 import { useState } from 'react';
 import { genresFetching } from './MoviesPage';
-import fetchMoviesList from '../asyncOperations/apiFetch';
+import { fetchMoviesList } from '../asyncOperations/apiFetch';
+import { searchMovies } from '../asyncOperations/apiFetch';
 import { actions } from '../feautures/movieList';
 
 const DropDownMenu = () => {
     const [input, setInput] = useState("");
-    const [genreName, setGenreName] = useState("Category")
     const dispatch = useDispatch();
 
     return (
         <div className='div-search'>
             <form>
                 <div className='input-icons'>
-                    <input className="input" type="text" onInput={e => setInput(e.target.value)}
+                    <input className='input' type='text' placeholder='Search..' onInput={e => setInput(e.target.value)}
+                        onChange={(e) => handleSearch(e)} />
+
+                    {/* <input className="input" type="text" onInput={e => setInput(e.target.value)}
                         onChange={() => fetchFreeSearch(dispatch, input, setGenreName("Category"))} placeholder="Search..." />
-                    <i className="fa fa-search icon" aria-hidden="true" ></i>
+                    <i className="fa fa-search icon" aria-hidden="true" ></i> */}
                 </div>
             </form>
 
             <div className="dropMenu">
-                <button className="dropButton"> Category  <i style={{ marginLeft: '2rem', color: 'black' }} className="fa fa-caret-down"></i></button>
+                <button className="dropButton"> Category <i style={{ marginLeft: '2rem', color: 'black' }} className="fa fa-caret-down"></i></button>
 
-                <div className="dropContent" onClick={(e) => {
-
-                }}>
+                <div className="dropContent">
                     <p onClick={() => handleClick(27)}>Horror</p>
                     <p onClick={() => handleClick(28)}>Action</p>
                     <p onClick={() => handleClick(12)}>Adventure</p>
@@ -46,6 +47,15 @@ const DropDownMenu = () => {
         dispatch(actions.fetching());
 
         fetchMoviesList(genre)
+            .then((response) => {
+                dispatch(actions.success(response));
+            })
+    }
+
+    function handleSearch(e) {
+        if (input == "") return
+
+        searchMovies(input)
             .then((response) => {
                 dispatch(actions.success(response));
             })

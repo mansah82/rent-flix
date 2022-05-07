@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../feautures/movieList';
-import fetchMoviesList from '../asyncOperations/apiFetch';
+import { fetchMoviesList } from '../asyncOperations/apiFetch';
 import Footer from './Footer';
 
 const HomePage = ({ setMovie }) => {
@@ -56,7 +56,6 @@ const HomePage = ({ setMovie }) => {
                 </div>
             </div>
 
-
             <h1 id='categoryTitle'>Popular</h1>
             <section id='movieContainer'>
                 {movieListContent}
@@ -65,20 +64,5 @@ const HomePage = ({ setMovie }) => {
         </div >
     )
 }
-
-// async function fetchPopularMovies(dispatch) {
-//     dispatch(actions.fetching());
-//     const url = 'https://api.themoviedb.org/3/movie/popular?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&page=1'
-
-//     try {
-//         let respone = await fetch(url);
-//         let data = await respone.json();
-//         let movie = data.results;
-//         console.log(movie);
-//         dispatch(actions.success(movie));
-//     } catch {
-//         dispatch(actions.failure());
-//     }
-// };
 
 export default HomePage;

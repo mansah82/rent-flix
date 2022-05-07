@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../feautures/movieList';
-import fetchMoviesList from '../asyncOperations/apiFetch';
+import { fetchMoviesList } from '../asyncOperations/apiFetch';
 import DropDownMenu from './DropDownMenu';
 
 const MoviesPage = ({ setMovie }) => {
