@@ -15,23 +15,23 @@ const STATUS = {
 
 const initialState = {
     status: STATUS.NORMAL,
-    movie : null
+    movie: null
 }
 
 const reducer = createReducer(initialState, {
-    [fetching] : (state, action) => ({
+    [fetching]: (state, action) => ({
         ...state,
         status: STATUS.FETCHING
     }),
-    [success] : (state, action) => ({
+    [success]: (state, action) => ({
         status: STATUS.SUCCESS,
-        movie :  action.payload
+        movie: action.payload
     }),
 
-    [failure] : (state, action) => ({
+    [failure]: (state, action) => ({
         ...state,
         status: STATUS.FAILURE
     })
 })
 
-export { actions , STATUS, reducer }
+export { actions, STATUS, reducer }

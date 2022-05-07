@@ -44,7 +44,7 @@ const MoviesPage = ({ setMovie }) => {
 
         fetchMoviesList()
             .then((movies) => {
-                return dispatch(actions.success(movies));
+                dispatch(actions.success(movies));
             })
     }, [])
 
@@ -110,7 +110,7 @@ async function fetchFreeSearch(dispatch, input) {
 };
 
 async function genresFetching(dispatch, genre) {
-
+    return
     dispatch(actions.fetching());
 
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=ace7b669ec91ad7702878aa98fd99d60&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}&with_watch_monetization_types=flatrate`

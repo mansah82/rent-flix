@@ -44,7 +44,7 @@ const HomePage = ({ setMovie }) => {
 
         fetchMoviesList()
             .then((movies) => {
-                return dispatch(actions.success(movies));
+                dispatch(actions.success(movies));
             })
     }, [])
 
