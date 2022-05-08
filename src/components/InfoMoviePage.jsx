@@ -1,5 +1,4 @@
 import './css/infoMovie.css';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { actions } from '../feautures/movieList';
 
@@ -32,16 +31,15 @@ const InfoMoviePage = ({ activeMovie }) => {
                 <hr color='red'></hr>
                 <p>{activeMovie.overview}</p>
                 <h2>Price: {price} Kr</h2>
-                <button onClick={() => handleBuy(activeMovie)}>Buy</button>
+
+                <button onClick={() => handleBuy(activeMovie)} id='rentButton'>Add to cart</button>
             </div>
-
         </div>
-
     )
 
     function handleBuy(movieInfo) {
         // Todo:
-        // Check if item already exist in rentedMovies, if false, then add item
+        // Check if item already exist in rentedMovies, if false, then just add item
         dispatch(actions.rentMovie([movieInfo]))
     }
 }

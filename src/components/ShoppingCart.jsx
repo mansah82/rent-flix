@@ -1,5 +1,4 @@
 import './css/shoppingCart.css';
-import { actions } from '../feautures/movieList';
 import { useSelector } from 'react-redux';
 
 const ShoppingCart = () => {
@@ -14,10 +13,10 @@ const ShoppingCart = () => {
 
         case true: {
             console.log('Showing movies...');
-            listOfRentedMovies = movie.map((data) => (
-                <li key={data.id}>
-                    <p>{data.title}</p>
-                    <p>50kr</p>
+            listOfRentedMovies = movie.map((movie) => (
+                <li key={movie.id} className="rentedMovie">
+                    <p className='rentTitle'>{movie.title}</p>
+                    <p className='rentPrice'>50kr</p>
                 </li>
             ))
             break
@@ -27,8 +26,15 @@ const ShoppingCart = () => {
     }
 
     return (
-        <div id='rentedMoviesContainer'>
-            {listOfRentedMovies}
+        <div id='shoppingCartPage'>
+            <section id='rentedMoviesContainer'>
+                {listOfRentedMovies}
+                {movie.length > 0 ? <p id='rentTotal'>Total: 99 Kr</p> : null}
+            </section>
+
+            <section id='creditForm'>
+                Credit form here
+            </section>
         </div>
     )
 }
