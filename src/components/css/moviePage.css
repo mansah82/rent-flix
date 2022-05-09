@@ -3,32 +3,9 @@
 
 }
 
-.column {
-    float: left;
-    width: 25%;
-
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-@media screen and (max-width: 1000px) {
-    .column {
-        width: 100%;
-    }
-}
-
-.movie-poster {
-    max-width: 20em;
-    max-height: 20em;
-}
-
 .movies_page {
-    margin-top: 1%;
-
+    --cardWidth: 250px;
+    --cardHeight: 400px;
 }
 
 .dropdown-div {
@@ -43,11 +20,5 @@
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .movies_page {
-        margin-top: 40%;
     }
 }

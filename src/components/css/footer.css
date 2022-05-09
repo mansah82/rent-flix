@@ -60,8 +60,8 @@ li {
     background-color: rgb(0, 0, 0, 0.5);
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
-    border-radius: 25px;
+    margin-top: 10rem;
+    border-radius: 25px 25px 0 0;
 }
 
 @media (max-width: 800px) {
