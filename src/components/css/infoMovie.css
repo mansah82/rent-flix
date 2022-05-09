@@ -1,68 +1,81 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 20px;
+  color: white;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.poster {
+  width: 25em;
+  height: 35em;
+  float: left;
+  margin-left: 50px;
+  margin-top: 120px;
+}
+
+#rentButton {
+  background-color: green;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 8px;
+  border-radius: 5px;
+  border-style: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: all 200ms;
+}
+
+#rentButton:hover {
+  background-color: rgb(0, 128, 0, 0.8);
+}
+
+#rentButton:active {
+  opacity: 0.8;
+  transition: all 100ms;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    overflow-x: hidden;
+    width: 100%;
   }
 
   .text {
-    font-size: 20px;
-    padding-left: 30px;
-    padding-right: 20px;
-    color: white;
-    text-align: justify;
-    text-justify: inter-word;
-    
-  }
-
-.poster {
-    width: 25em;
-    height: 35em;
-    float: left;
-    margin-left: 50px;
-    margin-top: 120px;
-}
-
-
-
-
-@media  screen and (max-width: 900px) {
-      .container{
-      overflow-x: hidden;
-        width: 100%;
-    }
-
-    .text{
     margin-top: 60px;
     font-size: 15px;
     padding-left: 20px;
     padding-right: 20px;
-    
-    }
+  }
 
-    .poster{
-      width: 18em;
-      height: 30em;
-      float: left;
-    }
+  .poster {
+    width: 18em;
+    height: 30em;
+    float: left;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .container{
-      width:100%;
-    }
+  .container {
+    width: 100%;
+  }
 
-    .text {
-      margin-top: 10em;
-      font-size: 13px;
-      padding-left: 20px;
-      padding-right: 20px;
-      
-    }
+  .text {
+    margin-top: 10em;
+    font-size: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-    .poster{
-      width: 15em;
-      height: 25em;
-      float: left;
-    }
-
+  .poster {
+    width: 15em;
+    height: 25em;
+    float: left;
+  }
 }
