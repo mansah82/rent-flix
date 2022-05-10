@@ -24,12 +24,12 @@ const MoviesPage = ({ setMovie }) => {
             // Remove loading here
 
             movieListContent = movie.map((mov) => (
-                <div key={mov.id} className="column" onClick={() => setMovie(mov)}>
-                    <div className='row'>
-                        <img className='movie-poster' src={picturePath + mov.poster_path} />
-                        <p className='movie-title'>{mov.title}</p>
-                    </div>
-                </div>
+                <li className='movieCard' key={mov.id}>
+                    <Link to={"/info"} onClick={() => setMovie(mov)}>
+                        <img className='movieImage' src={picturePath + mov.poster_path} alt='Movie poster' />
+                        <h3>{mov.title}</h3>
+                    </Link>
+                </li>
             ))
             break
         }
@@ -54,16 +54,12 @@ const MoviesPage = ({ setMovie }) => {
                 <DropDownMenu />
             </div>
 
-            <Link to={"/info"}>
-
-                <div className="row">
-
+            <section className='outerMovieContainer'>
+                <h1 id='categoryTitle'>Popular</h1>
+                <div id='movieContainer'>
                     {movieListContent}
-
-                </div>
-
-            </Link>
-
+                </div >
+            </section>
         </div>
     )
 }

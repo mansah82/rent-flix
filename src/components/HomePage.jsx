@@ -56,10 +56,12 @@ const HomePage = ({ setMovie }) => {
                 </div>
             </div>
 
-            <h1 id='categoryTitle'>Popular</h1>
-            <section id='movieContainer'>
-                {movieListContent}
-            </section >
+            <section className='outerMovieContainer'>
+                <h1 id='categoryTitle'>Popular</h1>
+                <div id='movieContainer'>
+                    {movieListContent}
+                </div >
+            </section>
             <Footer />
         </div >
     )

@@ -1,5 +1,6 @@
 import './css/shoppingCart.css';
 import { useSelector } from 'react-redux';
+import Footer from './Footer';
 
 const ShoppingCart = () => {
     const movie = useSelector(state => state.movieList.rentedMovies);
@@ -35,6 +36,8 @@ const ShoppingCart = () => {
             <section id='creditForm'>
                 Credit form here
             </section>
+
+            <Footer />
         </div>
     )
 }
