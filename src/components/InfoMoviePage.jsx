@@ -2,6 +2,8 @@ import './css/infoMovie.css';
 import { useDispatch } from 'react-redux';
 import { actions } from '../feautures/movieList';
 import { BsFillCartCheckFill } from 'react-icons/bs';
+import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+import CommentSection from './CommentSection';
 
 const InfoMoviePage = ({ activeMovie }) => {
     const picturePath = "https://image.tmdb.org/t/p/w500/"
@@ -27,6 +29,7 @@ const InfoMoviePage = ({ activeMovie }) => {
             </section>
 
             <section id='infoMovieText'>
+                <BsFillArrowRightSquareFill id='backButton' onClick={() => handleBackButton()} />
                 <h1>{activeMovie.title}</h1>
                 <h2>{activeMovie.release_date}</h2>
                 <h3>Votes: {activeMovie.vote_count}</h3>
@@ -37,7 +40,7 @@ const InfoMoviePage = ({ activeMovie }) => {
                 <hr />
 
                 <div>
-                    <p>Comment section component here</p>
+                    <CommentSection selectedMovie={activeMovie}/>
                 </div>
             </section>
         </div>
@@ -47,6 +50,10 @@ const InfoMoviePage = ({ activeMovie }) => {
         // Todo:
         // Check if item already exist in rentedMovies, if false, then just add item
         dispatch(actions.rentMovie([movieInfo]))
+    }
+
+    function handleBackButton() {
+        window.history.back();
     }
 }
 

@@ -1,0 +1,44 @@
+#commentInputContainer form {
+    height: 35px;
+}
+
+#commentInputContainer input {
+    height: 100%;
+    width: 60%;
+    padding: 0.2rem;
+    padding-left: 0.5rem;
+    border-radius: 5px;
+    border: 0;
+}
+
+#commentInputContainer button {
+    background-color: rgb(180, 134, 255);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 8px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-out;
+    float: right;
+    height: 100%;
+}
+
+#commentInputContainer button:hover {
+    background-color: rgb(180, 134, 255, 0.75);
+}
+
+#commentInputContainer button svg {
+    margin-left: 0.5rem;
+    width: 20px;
+    height: 20px;
+}
+
+#commentList * {
+    color: black;
+    background-color: white;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+}
