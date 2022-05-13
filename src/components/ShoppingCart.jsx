@@ -6,6 +6,7 @@ const ShoppingCart = () => {
     const movie = useSelector(state => state.movieList.rentedMovies);
     let listOfRentedMovies = null;
 
+
     let price = movie.map(movie => {
         if (movie.vote_average >= 8) {
             return 49
@@ -18,7 +19,8 @@ const ShoppingCart = () => {
         }
     });
 
-    var sum = price.reduce((x, y) => x + y);
+    var sum = price.filter(x => x > 0)
+        .reduce((x, y) => x + y, 0)
     console.log("SUM", sum);
 
     switch (movie.length > 0) {
