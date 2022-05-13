@@ -10,7 +10,11 @@ const CommentSection = ({ selectedMovie }) => {
     return (
         <div id='commentSection'>
             <section id='commentInputContainer'>
-                <form>
+                <form onSubmit={(event) => {
+                    // PreventDefault = No page refresh on submit
+                    event.preventDefault()
+                    createNewComment()
+                }}>
                     <input type='text' placeholder='Your thoughts...' id='textInputField' />
                     <button type='button' onClick={() => createNewComment()}>Send<FaRegComments /></button>
                 </form>
