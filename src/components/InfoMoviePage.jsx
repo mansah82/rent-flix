@@ -36,7 +36,7 @@ const InfoMoviePage = ({ activeMovie }) => {
                 <hr />
                 <p>{activeMovie.overview} </p>
 
-                <button onClick={() => handleBuy(activeMovie)} id='rentButton'><BsFillCartCheckFill />Add to cart</button>
+                <button onClick={() => handleBuy(activeMovie)} id='rentButton'><BsFillCartCheckFill />{price}$ | Add to cart</button>
                 <hr />
 
                 <div>
@@ -50,6 +50,8 @@ const InfoMoviePage = ({ activeMovie }) => {
         // Todo:
         // Check if item already exist in rentedMovies, if false, then just add item
         dispatch(actions.rentMovie([movieInfo]))
+
+        console.log(activeMovie);
     }
 
     function handleBackButton() {
