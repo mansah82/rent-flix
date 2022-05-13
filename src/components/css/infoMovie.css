@@ -1,7 +1,7 @@
 #infoMoviePage {
   background-color: rgb(0, 0, 0, 0.5);
   display: flex;
-  margin: 14rem auto 1rem auto;
+  margin: 14rem auto 0 auto;
   width: 800px;
   height: 600px;
   padding: 1rem;
