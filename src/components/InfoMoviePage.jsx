@@ -1,7 +1,9 @@
 import './css/infoMovie.css';
 import { useDispatch } from 'react-redux';
 import { actions } from '../feautures/movieList';
-
+import { BsFillCartCheckFill } from 'react-icons/bs';
+import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+import CommentSection from './CommentSection';
 
 const InfoMoviePage = ({ activeMovie }) => {
     const picturePath = "https://image.tmdb.org/t/p/w500/"
@@ -20,20 +22,27 @@ const InfoMoviePage = ({ activeMovie }) => {
     }
 
     return (
-        <div className='container'>
-            <div className='image'>
-                <img className='poster' src={picturePath + activeMovie.poster_path} />
-            </div>
-            <div className='text'>
-                <h1>{activeMovie.title}</h1>
-                <p>Release date: {activeMovie.release_date}</p>
-                <h3>Rating: {activeMovie.vote_average}</h3>
-                <hr color='red'></hr>
-                <p>{activeMovie.overview}</p>
-                <h2>Price: {price} Kr</h2>
+        <div id='infoMoviePage'>
+            <section id='infoMovieContainer'>
+                <p>{activeMovie.vote_average}</p>
+                <img src={picturePath + activeMovie.poster_path} />
+            </section>
 
-                <button onClick={() => handleBuy(activeMovie)} id='rentButton'>Add to cart</button>
-            </div>
+            <section id='infoMovieText'>
+                <BsFillArrowRightSquareFill id='backButton' onClick={() => handleBackButton()} />
+                <h1>{activeMovie.title}</h1>
+                <h2>{activeMovie.release_date}</h2>
+                <h3>Votes: {activeMovie.vote_count}</h3>
+                <hr />
+                <p>{activeMovie.overview} </p>
+
+                <button onClick={() => handleBuy(activeMovie)} id='rentButton'><BsFillCartCheckFill />Add to cart</button>
+                <hr />
+
+                <div>
+                    <CommentSection selectedMovie={activeMovie}/>
+                </div>
+            </section>
         </div>
     )
 
@@ -41,6 +50,10 @@ const InfoMoviePage = ({ activeMovie }) => {
         // Todo:
         // Check if item already exist in rentedMovies, if false, then just add item
         dispatch(actions.rentMovie([movieInfo]))
+    }
+
+    function handleBackButton() {
+        window.history.back();
     }
 }
 
