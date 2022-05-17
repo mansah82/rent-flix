@@ -13,6 +13,7 @@ function App() {
 
   const [activeMovie, setActiveMovie] = useState(null);
 
+
   return (
     <div className="App">
       <main>
