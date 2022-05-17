@@ -34,12 +34,30 @@ const ShoppingCart = () => {
             </section>
 
             <section id='creditForm'>
-                Credit form here
+                <div className='form-name' >
+                    <h3 className='credit-header'>Credit Card</h3>
+                    <input type="text" placeholder='First name' className='firstname'  />
+                    
+                    <input type="text" placeholder='Last name' className='lastname'/>
+                </div>
+
+                <div className='form-cardnumber'>
+                    <input type="text" placeholder='xxxx xxxx xxxx xxxx' className='cardnumber'  />
+                </div>
+                <div className='form-cvc'>
+                    <input type="month" className='month' />
+                    <input type="number" placeholder='cvc' className='cvc' />
+                </div>
+
+                <button className='pay-button'>Pay</button>
+
             </section>
 
             <Footer />
         </div>
     )
 }
+
+
 
 export default ShoppingCart;
