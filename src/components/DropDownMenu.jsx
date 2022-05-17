@@ -15,6 +15,7 @@ const DropDownMenu = () => {
                 <div className='input-icons'>
                     <input className='input' type='text' placeholder='Search..' onInput={e => setInput(e.target.value)}
                         onChange={(e) => handleSearch(e)} />
+                        
 
                     {/* <input className="input" type="text" onInput={e => setInput(e.target.value)}
                         onChange={() => fetchFreeSearch(dispatch, input, setGenreName("Category"))} placeholder="Search..." />
