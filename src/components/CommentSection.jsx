@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import './css/commentSection.css';
 import { FaRegComments } from 'react-icons/fa'
 import db from '../firebase/firebase';
-import { onSnapshot } from 'firebase/firestore';
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { doc, setDoc, arrayUnion } from "firebase/firestore";
 
 
 const CommentSection = ({ selectedMovie }) => {
@@ -22,7 +22,7 @@ const CommentSection = ({ selectedMovie }) => {
                     createNewComment()
                 }}>
                     <input type='text' placeholder='Your thoughts...' id='textInputField' />
-                    <button type='button' onClick={() => createNewComment()}>Send<FaRegComments /></button>
+                    <button type='button' onClick={() => createNewComment(selectedMovie)}>Send<FaRegComments /></button>
                 </form>
             </section>
 
@@ -33,34 +33,13 @@ const CommentSection = ({ selectedMovie }) => {
         </div>
     )
 
-    
+    async function createNewComment(selectedMovie) {
+        const textInput = document.getElementById('textInputField');
 
-   
+        const movieRef = doc(db, "movies", selectedMovie.title);
+        setDoc(movieRef, { comment: arrayUnion(...[textInput.value]) }, { merge: true });
 
-    async function createNewComment() {
-        console.log("Körs");
-        await setDoc(doc(db, "cities", "LA"), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
-          });
-
-        /*const textInput = document.getElementById('textInputField');
-
-        if (textInput.value == '') {
-            textInput.placeholder = "Field can't be empty!"
-        } else {
-            textInput.placeholder = "Your thoughts..."
-
-            // Create new list item
-            const newText = document.createElement("li");
-            newText.innerHTML = textInput.value
-
-            // Push new item to list
-            document.getElementById("commentList").prepend(newText)
-            textInput.value = ''*/
-        }
-    
+    }
 
     function appendFirestoreData(selectedMovie) {
         console.log('Movie id to fetch chat from:', selectedMovie.id);
