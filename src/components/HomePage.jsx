@@ -19,10 +19,9 @@ const HomePage = ({ setMovie }) => {
             // Start loading here
             break
         }
-
+        
         case 'success': {
             // Remove loading here
-
             movieListContent = movie.map((data) => (
                 <li className='movieCard' key={data.id}>
                     <Link to={"/info"} onClick={() => setMovie(data)}>
@@ -39,10 +38,9 @@ const HomePage = ({ setMovie }) => {
 
     useEffect(() => {
         if (movieListContent == null) {
-            dispatch(actions.fetching());
-        }
-
-        fetchMoviesList()
+            dispatch(actions.fetching()); 
+        };
+            fetchMoviesList()
             .then((movies) => {
                 dispatch(actions.success(movies));
             })

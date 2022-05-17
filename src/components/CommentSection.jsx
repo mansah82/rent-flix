@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
 import './css/commentSection.css';
 import { FaRegComments } from 'react-icons/fa'
+import db from '../firebase/firebase';
+import { onSnapshot } from 'firebase/firestore';
+import { doc, setDoc } from "firebase/firestore";
+
 
 const CommentSection = ({ selectedMovie }) => {
+
     useEffect(() => {
         appendFirestoreData(selectedMovie)
+
     }, [])
 
     return (
@@ -27,8 +33,19 @@ const CommentSection = ({ selectedMovie }) => {
         </div>
     )
 
-    function createNewComment() {
-        const textInput = document.getElementById('textInputField');
+    
+
+   
+
+    async function createNewComment() {
+        console.log("Körs");
+        await setDoc(doc(db, "cities", "LA"), {
+            name: "Los Angeles",
+            state: "CA",
+            country: "USA"
+          });
+
+        /*const textInput = document.getElementById('textInputField');
 
         if (textInput.value == '') {
             textInput.placeholder = "Field can't be empty!"
@@ -41,9 +58,9 @@ const CommentSection = ({ selectedMovie }) => {
 
             // Push new item to list
             document.getElementById("commentList").prepend(newText)
-            textInput.value = ''
+            textInput.value = ''*/
         }
-    }
+    
 
     function appendFirestoreData(selectedMovie) {
         console.log('Movie id to fetch chat from:', selectedMovie.id);
