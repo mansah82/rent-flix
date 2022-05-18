@@ -42,7 +42,7 @@ const CommentSection = ({ selectedMovie }) => {
                 {oldComments ? (
                     <CommentCard list={oldComments} movie={selectedMovie} />
                 ) : (
-                    <p>Be the first to comment!</p>
+                    <p id="missingListText">No comments yet. <br />Be the first to comment!</p>
                 )}
             </section>
         </div>

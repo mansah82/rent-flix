@@ -40,6 +40,11 @@
     box-shadow: rgb(0 0 0 / 40%) 0px 3px 8px;
     font-weight: bold;
     color: white;
+    transition: 0.2s ease-out;
+}
+
+.commentRatingSection button:hover {
+    opacity: 0.5;
 }
 
 .commentRatingSection button:first-of-type {

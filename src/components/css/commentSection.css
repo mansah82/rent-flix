@@ -34,3 +34,10 @@
     width: 20px;
     height: 20px;
 }
+
+#missingListText {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    color: salmon;
+    font-style: italic;
+}
