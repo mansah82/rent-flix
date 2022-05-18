@@ -57,10 +57,9 @@ const CommentSection = ({ selectedMovie }) => {
         } else {
             textInput.placeholder = "Your thoughts..."
             const movieRef = doc(db, "movies", String(selectedMovie.id));
-            const commentAndVote = { 'comment': textInput.value, 'vote': 0 }
 
             setDoc(movieRef, {
-                commentList: arrayUnion(...[commentAndVote])
+                [text]: { 'vote': 0 }
             }, { merge: true });
             textInput.value = ''
         }
@@ -69,11 +68,11 @@ const CommentSection = ({ selectedMovie }) => {
     function loadOldCommentSection(oldList) {
         let oldCommentList = [];
 
-        for (let i = 0; i < oldList.commentList.length; i++) {
-            oldCommentList.push(oldList.commentList[i].comment);
+        for (let [key, name] of Object.entries(oldList)) {
+            oldCommentList.push([key, name.vote])
         }
 
-        setOldComments(...[oldCommentList]);
+        setOldComments(oldCommentList);
     }
 }
 

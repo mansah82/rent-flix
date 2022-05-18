@@ -1,35 +1,40 @@
-import { doc, setDoc, arrayUnion, onSnapshot, addDoc, updateDoc, collection, query, where, getDocs } from "firebase/firestore";
+import { doc, setDoc, arrayUnion, onSnapshot, addDoc, updateDoc, collection, query, where, getDocs, getDoc, FieldValue } from "firebase/firestore";
 import db from '../firebase/firebase';
 import './css/commentCard.css';
 
 const CommentCard = ({ list, movie }) => {
+
+    // TODO:
+    // Sort {list} before rendering it
 
     return (
         <div>
             {list && list.map((data, key) => (
                 <li className="commentCard" key={key}>
                     <section className="commentRatingSection">
-                        <h3>Rating: <span>5</span></h3>
-                        <button onClick={() => handleVote(1, data)}>+</button>
-                        <button onClick={() => handleVote(-1, data)}>-</button>
+                        <h3>Rating: <span>{data[1]}</span></h3>
+                        <button onClick={() => handleVote(1, data, key)}>+</button>
+                        <button onClick={() => handleVote(-1, data, key)}>-</button>
                     </section>
 
                     <section className="commentRatingText">
-                        <h3>{data}</h3>
+                        <h3>{data[0]}</h3>
                     </section>
                 </li>
             ))}
         </div>
     )
 
-    async function handleVote(vote, comment) {
-        console.log(vote);
-        console.log(comment);
-        console.log(movie.original_title);
+    async function handleVote(vote, comment, index) {
+        const voteRef = doc(db, "movies", String(movie.id), String(comment[0]), String(comment[1]));
+        const docRef = doc(db, "movies", String(movie.id));
 
-        // 1: Fetch current value from selected comment
-        // 2: Combine old vote value with new vote value
-        // 3: Replace the old vote value with the combined vote value
+        const oldVote = await getDoc(voteRef)
+        const newVote = +vote + +oldVote.id
+
+        updateDoc(docRef, {
+            [String(comment[0])]: { 'vote': newVote }
+        })
     }
 }
 
