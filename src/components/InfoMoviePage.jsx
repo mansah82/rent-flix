@@ -4,11 +4,11 @@ import { actions } from '../feautures/movieList';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 import CommentSection from './CommentSection';
+import { useEffect } from 'react';
 
 const InfoMoviePage = ({ activeMovie }) => {
     const picturePath = "https://image.tmdb.org/t/p/w500/"
     const dispatch = useDispatch();
-
     let price = 0
 
     if (activeMovie.vote_average >= 8) {
@@ -40,7 +40,7 @@ const InfoMoviePage = ({ activeMovie }) => {
                 <hr />
 
                 <div>
-                    <CommentSection selectedMovie={activeMovie}/>
+                    <CommentSection selectedMovie={activeMovie} />
                 </div>
             </section>
         </div>
