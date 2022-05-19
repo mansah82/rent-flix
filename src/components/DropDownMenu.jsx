@@ -16,13 +16,13 @@ const DropDownMenu = () => {
                 <div className='input-icons'>
                     <input className='input' type='text' placeholder='Search..' onInput={e => setInput(e.target.value)}
                         onChange={(e) => { handleSearch(e); setGenreName("Category"); }} />
-                    <i className="fa fa-search icon" aria-hidden="true" ></i>
+                    <i className="fa fa-search icon" aria-hidden="true"></i>
                 </div>
             </form>
 
             <div className="dropMenu">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-                <button className="dropButton"> {genreName} <i style={{ marginLeft: '2rem', color: 'black' }} className="fa fa-caret-down"></i></button>
+                <button className="dropButton"> {genreName} <i className="fa fa-caret-down"></i></button>
 
                 <div className="dropContent">
                     <p onClick={() => {
