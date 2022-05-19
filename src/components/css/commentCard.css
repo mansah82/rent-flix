@@ -1,0 +1,58 @@
+.commentCard {
+    color: black;
+    background-color: white;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#commentRatingText {
+    color: rebeccapurple;
+    margin: 0;
+    margin-left: auto;
+}
+
+.commentRatingSection {
+    border-bottom: 2px solid salmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.commentRatingSection svg {
+    color: lightgreen;
+}
+
+#commentRatingText p {
+    font-style: italic;
+    margin-bottom: 0rem;
+    padding: 0;
+
+}
+
+.commentRatingSection span {
+    color: green;
+    font-weight: bold;
+}
+
+.commentRatingSection button {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: green;
+    box-shadow: rgb(0 0 0 / 40%) 0px 3px 8px;
+    font-weight: bold;
+    color: white;
+    transition: 0.2s ease-out;
+}
+
+.commentRatingSection button:hover {
+    opacity: 0.5;
+}
+
+.commentRatingSection button:first-of-type {
+    margin-left: auto;
+    margin-right: 5px;
+}

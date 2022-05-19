@@ -31,7 +31,7 @@
 
 /* START -- Movie text elements */
 
-#infoMovieText {
+.infoMovieText {
   width: 50%;
   text-align: left;
   padding-left: 1rem;
@@ -41,28 +41,28 @@
   color: white;
 }
 
-#infoMovieText h1 {
+.infoMovieText h1 {
   font-size: 1.75rem;
   color: salmon;
   margin-bottom: 2rem;
 }
 
-#infoMovieText h2 {
+.infoMovieText h2 {
   font-weight: normal;
   font-size: 1.2rem;
 }
 
-#infoMovieText h3 {
+.infoMovieText h3 {
   font-weight: normal;
   font-size: 1rem;
 }
 
-#infoMovieText p {
+.infoMovieText p {
   max-width: 400px;
   margin-bottom: 1rem;
 }
 
-#infoMovieText hr {
+.infoMovieText hr {
   border: none;
   background-color: salmon;
   height: 3px;
@@ -145,20 +145,20 @@
     max-width: 80%;
   }
 
-  #infoMovieText {
+  .infoMovieText {
     display: block;
     width: 100%;
   }
 
-  #infoMovieText p {
+  .infoMovieText p {
     max-width: 100%;
   }
 
-  #infoMovieText h1 {
+  .infoMovieText h1 {
     margin-bottom: 0;
   }
 
-  #infoMovieText hr {
+  .infoMovieText hr {
     margin: 1.5rem 0;
   }
 }
@@ -180,11 +180,11 @@
     margin-top: 2.5rem;
   }
 
-  #infoMovieText {
+  .infoMovieText {
     padding: 0 0.5rem;
   }
 
-  #infoMovieText h1 {
+  .infoMovieText h1 {
     font-size: 1.5rem;
   }
 }
