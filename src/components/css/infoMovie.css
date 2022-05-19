@@ -69,6 +69,25 @@
   margin: 3rem 0;
 }
 
+ #trailer{
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 25%;
+  bottom: 0;
+  height: 350px;
+
+}
+
+@media screen and (max-width: 500px){
+  #trailer{
+    height: 100px;
+    left: 0;
+    right: 0;
+    height: 200px;
+  }
+}
+
 /* END -- Movie text elements */
 
 #rentButton {
@@ -82,6 +101,7 @@
   transition: all 200ms;
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 #rentButton:hover {
