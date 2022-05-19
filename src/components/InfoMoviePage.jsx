@@ -1,13 +1,15 @@
 import './css/infoMovie.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../feautures/movieList';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 import CommentSection from './CommentSection';
 import { useEffect } from 'react';
+import { isEmpty } from '@firebase/util';
 
 const InfoMoviePage = ({ activeMovie }) => {
     const picturePath = "https://image.tmdb.org/t/p/w500/"
+    const movie = useSelector(state => state.movieList.rentedMovies);
     const dispatch = useDispatch();
     let price = 0
 
@@ -47,11 +49,15 @@ const InfoMoviePage = ({ activeMovie }) => {
     )
 
     function handleBuy(movieInfo) {
-        // Todo:
-        // Check if item already exist in rentedMovies, if false, then just add item
-        dispatch(actions.rentMovie([movieInfo]))
+        let rentedFilms = [];
 
-        console.log(activeMovie);
+        movie.forEach(element => {
+            rentedFilms.push(element.id)
+        });
+
+        // Checks if list is rent list is empty and if selectedMovie already exists in the list
+        if (rentedFilms.length == 0) { return dispatch(actions.rentMovie([movieInfo])) }
+        if (!rentedFilms.includes(movieInfo.id)) { dispatch(actions.rentMovie([movieInfo])) }
     }
 
     function handleBackButton() {
