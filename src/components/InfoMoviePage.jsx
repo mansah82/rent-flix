@@ -8,7 +8,7 @@ import { getTrailer } from '../asyncOperations/apiFetch';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import YouTube from 'react-youtube';
-import { useEffect } from 'react';
+
 import { isEmpty } from '@firebase/util';
 
 
