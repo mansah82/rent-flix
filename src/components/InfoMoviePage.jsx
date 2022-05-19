@@ -4,13 +4,58 @@ import { actions } from '../feautures/movieList';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 import CommentSection from './CommentSection';
+import { getTrailer } from '../asyncOperations/apiFetch';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import YouTube from 'react-youtube';
 import { useEffect } from 'react';
 import { isEmpty } from '@firebase/util';
+
 
 const InfoMoviePage = ({ activeMovie }) => {
     const picturePath = "https://image.tmdb.org/t/p/w500/"
     const movie = useSelector(state => state.movieList.rentedMovies);
     const dispatch = useDispatch();
+    const [id, setId] = useState(activeMovie.id)
+    const [currentMovie, setCurrentMovie] = useState([])
+    const [playerTrailer, setPlayerTrailer] = useState(false)
+    const [play, setPlay] = useState("Play trailer")
+
+    useEffect(() => {
+        setId(activeMovie.id)
+        getTrailer(id)
+            .then((response) => {
+                console.log("GET TRAILER 2", response)
+                setCurrentMovie(response)
+                console.log("currentMOvie", currentMovie)
+            })
+
+        console.log("MOVIE ID", activeMovie.id)
+
+    }, []);
+
+    const renderTrailer = () => {
+        const trailer = currentMovie.videos.results.find(vid => vid.name === "Official Trailer")
+        console.log("renderTrailer", trailer)
+        const key = trailer ? trailer.key : currentMovie.videos.results[0].key
+        return (
+            <YouTube
+                containerClassName='youtube'
+                videoId={key}
+                opts={{
+                    width: "60%",
+                    height: "370px",
+                    playerVars: {
+                        autoplay: 1
+                    }
+                }
+
+                }
+            />
+        )
+    }
+
+
     let price = 0
 
     if (activeMovie.vote_average >= 8) {
@@ -25,6 +70,9 @@ const InfoMoviePage = ({ activeMovie }) => {
 
     return (
         <div id='infoMoviePage'>
+            <div id='trailer'>
+                {currentMovie.videos && playerTrailer ? renderTrailer() : null}
+            </div>
             <section id='infoMovieContainer'>
                 <p>{activeMovie.vote_average}</p>
                 <img src={picturePath + activeMovie.poster_path} />
@@ -39,6 +87,7 @@ const InfoMoviePage = ({ activeMovie }) => {
                 <p>{activeMovie.overview} </p>
 
                 <button onClick={() => handleBuy(activeMovie)} id='rentButton'><BsFillCartCheckFill />{price}$ | Add to cart</button>
+                <button onClick={() => togglePlayer()} id='rentButton'>{play}</button>
                 <hr />
 
                 <div>
@@ -46,6 +95,7 @@ const InfoMoviePage = ({ activeMovie }) => {
                 </div>
             </section>
         </div>
+
     )
 
     function handleBuy(movieInfo) {
@@ -63,6 +113,19 @@ const InfoMoviePage = ({ activeMovie }) => {
     function handleBackButton() {
         window.history.back();
     }
+
+    function togglePlayer() {
+        if (playerTrailer === false) {
+            setPlayerTrailer(true)
+            setPlay("Close Trailer")
+        } else {
+            setPlayerTrailer(false)
+            setPlay("Play Trailer")
+
+        }
+
+    }
+
 }
 
 export default InfoMoviePage;
