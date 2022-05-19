@@ -28,7 +28,7 @@ const InfoMoviePage = ({ activeMovie }) => {
                 <img src={picturePath + activeMovie.poster_path} />
             </section>
 
-            <section id='infoMovieText'>
+            <section className='infoMovieText'>
                 <BsFillArrowRightSquareFill id='backButton' onClick={() => handleBackButton()} />
                 <h1>{activeMovie.title}</h1>
                 <h2>{activeMovie.release_date}</h2>

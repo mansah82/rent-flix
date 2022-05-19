@@ -6,8 +6,10 @@
     border-radius: 5px;
 }
 
-.commentRatingText {
-    margin-top: 0.5rem;
+#commentRatingText {
+    color: rebeccapurple;
+    margin: 0;
+    margin-left: auto;
 }
 
 .commentRatingSection {
@@ -22,8 +24,11 @@
     color: lightgreen;
 }
 
-.commentRatingSection h3 {
+#commentRatingText p {
     font-style: italic;
+    margin-bottom: 0rem;
+    padding: 0;
+
 }
 
 .commentRatingSection span {
