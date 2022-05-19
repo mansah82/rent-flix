@@ -56,11 +56,11 @@ const MoviesPage = ({ setMovie }) => {
             </div>
 
             <section className='outerMovieContainer'>
-                <h1 id='categoryTitle'>Popular</h1>
+                <h1 id='categoryTitle'></h1>
                 <div id='movieContainer'>
                     {movieListContent}
                 </div >
-                </section>
+            </section>
         </div>
     )
 }

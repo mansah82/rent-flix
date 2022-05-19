@@ -35,10 +35,9 @@
     height: 20px;
 }
 
-#commentList * {
-    color: black;
-    background-color: white;
-    margin: 0.5rem 0;
-    padding: 1rem;
-    border-radius: 5px;
+#missingListText {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    color: salmon;
+    font-style: italic;
 }
