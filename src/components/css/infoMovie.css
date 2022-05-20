@@ -76,7 +76,7 @@
   top: 20%;
   bottom: 0;
   height: 350px;
-
+  z-index: 1;
 }
 
 @media screen and (max-width: 500px) {
