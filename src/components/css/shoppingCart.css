@@ -8,9 +8,9 @@
 
 #rentedMoviesContainer {
     background-color: white;
-    padding: 5rem;
+    
     max-width: 1200px;
-    margin: 1rem;
+    
     border-radius: 10px;
 }
 
@@ -41,6 +41,9 @@
 .rentPrice {
     border-left: 3px solid salmon;
     margin-left: auto;
+    width: 70px;
+   
+   
 }
 
 .rentedMovie p {

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../feautures/movieList';
 import { fetchMoviesList } from '../asyncOperations/apiFetch';
 import DropDownMenu from './DropDownMenu';
+import { useState } from 'react';
 
 const MoviesPage = ({ setMovie }) => {
     const status = useSelector(state => state.movieList.status);
@@ -59,7 +60,7 @@ const MoviesPage = ({ setMovie }) => {
                 <div id='movieContainer'>
                     {movieListContent}
                 </div >
-            </section>
+                </section>
         </div>
     )
 }
