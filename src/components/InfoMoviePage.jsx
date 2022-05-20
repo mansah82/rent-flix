@@ -8,7 +8,8 @@ import { getTrailer } from '../asyncOperations/apiFetch';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import YouTube from 'react-youtube';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { isEmpty } from '@firebase/util';
 
 
@@ -56,9 +57,7 @@ const InfoMoviePage = ({ activeMovie }) => {
         )
     }
 
-
     let price = 0
-
     if (activeMovie.vote_average >= 8) {
         price = 49
     } else if (activeMovie.vote_average >= 7) {
@@ -80,14 +79,15 @@ const InfoMoviePage = ({ activeMovie }) => {
             </section>
 
             <section className='infoMovieText'>
-                <BsFillArrowRightSquareFill id='backButton' onClick={() => handleBackButton()} />
+                <BsFillArrowRightSquareFill id='backButton' onClick={() => window.history.back()} />
                 <h1>{activeMovie.title}</h1>
                 <h2>{activeMovie.release_date}</h2>
                 <h3>Votes: {activeMovie.vote_count}</h3>
                 <hr />
                 <p>{activeMovie.overview} </p>
 
-                <button onClick={() => handleBuy(activeMovie)} id='rentButton'><BsFillCartCheckFill />{price}$ | Add to cart</button>
+                <button onClick={() => handleBuy(activeMovie)
+                } id='rentButton'><BsFillCartCheckFill />{price}$ | Add to cart</button>
                 <button onClick={() => togglePlayer()} id='rentButton'>{play}</button>
                 <hr />
 
@@ -95,24 +95,58 @@ const InfoMoviePage = ({ activeMovie }) => {
                     <CommentSection selectedMovie={activeMovie} />
                 </div>
             </section>
+            <ToastContainer />
         </div>
-
     )
 
     function handleBuy(movieInfo) {
         let rentedFilms = [];
 
-        movie.forEach(element => {
-            rentedFilms.push(element.id)
+        // Fills rentedFilms list with redux information
+        movie.forEach(element => { rentedFilms.push(element.id) });
+
+        // Checks if list is empty and then add selected movie
+        if (rentedFilms.length == 0) {
+
+            toast.success('Movie added to cart', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+            return dispatch(actions.rentMovie([movieInfo]))
+        }
+
+        // Checks if rentedFilm list contains current movie
+        if (!rentedFilms.includes(movieInfo.id)) {
+
+            toast.success('Movie added to cart', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+            return dispatch(actions.rentMovie([movieInfo]))
+        }
+
+        // Else just display error and dont add movie to cart
+        toast.error('Movie already in cart!', {
+            position: "bottom-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
         });
-
-        // Checks if list is rent list is empty and if selectedMovie already exists in the list
-        if (rentedFilms.length == 0) { return dispatch(actions.rentMovie([movieInfo])) }
-        if (!rentedFilms.includes(movieInfo.id)) { dispatch(actions.rentMovie([movieInfo])) }
-    }
-
-    function handleBackButton() {
-        window.history.back();
     }
 
     function togglePlayer() {
@@ -122,11 +156,8 @@ const InfoMoviePage = ({ activeMovie }) => {
         } else {
             setPlayerTrailer(false)
             setPlay("Play Trailer")
-
         }
-
     }
-
 }
 
 export default InfoMoviePage;
