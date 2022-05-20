@@ -31,7 +31,7 @@
 
 /* START -- Movie text elements */
 
-#infoMovieText {
+.infoMovieText {
   width: 50%;
   text-align: left;
   padding-left: 1rem;
@@ -41,32 +41,51 @@
   color: white;
 }
 
-#infoMovieText h1 {
+.infoMovieText h1 {
   font-size: 1.75rem;
   color: salmon;
   margin-bottom: 2rem;
 }
 
-#infoMovieText h2 {
+.infoMovieText h2 {
   font-weight: normal;
   font-size: 1.2rem;
 }
 
-#infoMovieText h3 {
+.infoMovieText h3 {
   font-weight: normal;
   font-size: 1rem;
 }
 
-#infoMovieText p {
+.infoMovieText p {
   max-width: 400px;
   margin-bottom: 1rem;
 }
 
-#infoMovieText hr {
+.infoMovieText hr {
   border: none;
   background-color: salmon;
   height: 3px;
   margin: 3rem 0;
+}
+
+#trailer {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 20%;
+  bottom: 0;
+  height: 350px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+  #trailer {
+    left: 0;
+    right: 0;
+    top: 25%;
+    height: 100px;
+  }
 }
 
 /* END -- Movie text elements */
@@ -82,6 +101,7 @@
   transition: all 200ms;
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 #rentButton:hover {
@@ -145,20 +165,20 @@
     max-width: 80%;
   }
 
-  #infoMovieText {
+  .infoMovieText {
     display: block;
     width: 100%;
   }
 
-  #infoMovieText p {
+  .infoMovieText p {
     max-width: 100%;
   }
 
-  #infoMovieText h1 {
+  .infoMovieText h1 {
     margin-bottom: 0;
   }
 
-  #infoMovieText hr {
+  .infoMovieText hr {
     margin: 1.5rem 0;
   }
 }
@@ -180,11 +200,11 @@
     margin-top: 2.5rem;
   }
 
-  #infoMovieText {
+  .infoMovieText {
     padding: 0 0.5rem;
   }
 
-  #infoMovieText h1 {
+  .infoMovieText h1 {
     font-size: 1.5rem;
   }
 }

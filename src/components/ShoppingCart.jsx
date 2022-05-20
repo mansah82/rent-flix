@@ -2,13 +2,17 @@ import './css/shoppingCart.css';
 import { useSelector } from 'react-redux';
 import Footer from './Footer';
 import { FaCcVisa } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import { async } from '@firebase/util';
+import { useState } from 'react';
 
 const ShoppingCart = () => {
     const movie = useSelector(state => state.movieList.rentedMovies);
     let listOfRentedMovies = null;
+   
 
 
-    let price = movie.map(movie => {
+  let price = movie.map(movie => {
         if (movie.vote_average >= 8) {
             return 49
         } else if (movie.vote_average >= 7) {
@@ -55,12 +59,11 @@ const ShoppingCart = () => {
                 <div className='form-name' >
                     <h3 className='credit-header'>Credit Card</h3>
                     <input type="text" placeholder='First name' className='firstname' id='firstname'  />
-                    
                     <input type="text" placeholder='Last name' className='lastname' id='lastname'/>
                 </div>
 
                 <div className='form-cardnumber'>
-                    <input type="text" placeholder='xxxx xxxx xxxx xxxx' className='cardnumber' id='cardnumber' />
+                    <input type="number" placeholder='xxxx xxxx xxxx xxxx'  className='cardnumber' id='cardnumber' />
                 </div>
                 <div className='form-cvc'>
                     <input type="month" className='month' id='month'/>
@@ -70,34 +73,89 @@ const ShoppingCart = () => {
                 <button className='pay-button' onClick={checkIfValid}>Pay</button>
 
             </section>
-
+            <ToastContainer />
             <Footer />
         </div>
     )
+
+
+
+
 function checkIfValid(){
     const firstName = document.getElementById("firstname")
     const lastName = document.getElementById("lastname")
-    const cardNumber = document.getElementById("cardnumber")
+    const cardnumber = document.getElementById("cardnumber")
     const cvc = document.getElementById("cvc")
     const month = document.getElementById("month")
-    
-    if(cardNumber.value.length != 16 &&
-        firstName.value == "" &&
-        lastName.value == "" &&
-        cvc.value.length != 3) {
 
-    
-        cardNumber.style.background = "salmon"
-        firstName.style.background = "salmon"
-        lastName.style.background = "salmon"
-        month.style.background = "salmon"
-        cvc.style.background = "salmon"
-    }
-       
-
-        
    
     
+    if(cardnumber.value.length != 16) {
+
+            toast.error('Cardnumber incorrect', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+        }else if(firstName.value == "",
+                 lastName.value == ""){
+                    
+                toast.error('Type in your name', {
+                     position: "bottom-center",
+                     autoClose: 2000,
+                     hideProgressBar: true,
+                     closeOnClick: true,
+                     pauseOnHover: true,
+                     draggable: true,
+                     progress: undefined,
+                    });
+
+        }else if(cvc.value.length != 3){
+
+            toast.error('CVC incorrect', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        
+        }else if(month.value == ""){
+
+
+            toast.error('Select correct month and year', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+
+        }else{
+
+            console.log(month.value)
+        
+        toast.success('Payment Successfull', {
+            position: "bottom-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+
+    }
 }
 
 

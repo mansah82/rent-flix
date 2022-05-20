@@ -25,15 +25,32 @@ async function searchMovies(name) {
         let response = await fetch(api);
         let data = await response.json();
         if (response.ok) return data.results;
-
+       
+       
     } catch (error) {
         console.log(error);
     }
 }
 
+async function getTrailer(id) {
+    let api = `https://api.themoviedb.org/3/movie/${id}?api_key=ace7b669ec91ad7702878aa98fd99d60&append_to_response=videos`
+     console.log("getTrailer", id)
+    try {
+        let response = await fetch(api);
+        console.log("trailer",response)
+        let data = await response.json();
+        if (response.ok) return data;
+       
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+
 export {
     fetchMoviesList,
-    searchMovies
+    searchMovies,
+    getTrailer
 }
 
 // Sleep code ?

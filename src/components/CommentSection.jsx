@@ -1,16 +1,27 @@
-import { useEffect, useState } from 'react';
-import './css/commentSection.css';
+import { doc, setDoc, arrayUnion, onSnapshot, addDoc, updateDoc, collection } from "firebase/firestore";
+import { useEffect, useState, useRef } from 'react';
 import { FaRegComments } from 'react-icons/fa'
 import db from '../firebase/firebase';
-import { onSnapshot } from 'firebase/firestore';
-import { doc, setDoc } from "firebase/firestore";
-
+import CommentCard from './CommentCard';
+import './css/commentSection.css';
 
 const CommentSection = ({ selectedMovie }) => {
+    const mounted = useRef(false);
+    const [oldComments, setOldComments] = useState();
 
     useEffect(() => {
-        appendFirestoreData(selectedMovie)
+        mounted.current = true;
 
+        const unsubscribe = onSnapshot(doc(db, "movies", String(selectedMovie.id)), (doc) => {
+            if (doc.data() == undefined) return
+            loadOldCommentSection(doc.data())
+        });
+
+        // Triggers when component is unmounted
+        return () => {
+            mounted.current = false;
+            unsubscribe()
+        };
     }, [])
 
     return (
@@ -19,52 +30,49 @@ const CommentSection = ({ selectedMovie }) => {
                 <form onSubmit={(event) => {
                     // PreventDefault = No page refresh on submit
                     event.preventDefault()
+
                     createNewComment()
                 }}>
                     <input type='text' placeholder='Your thoughts...' id='textInputField' />
-                    <button type='button' onClick={() => createNewComment()}>Send<FaRegComments /></button>
+                    <button type='button' onClick={() => createNewComment(selectedMovie)}>Send<FaRegComments /></button>
                 </form>
             </section>
 
             <section>
-                <ul id='commentList'>
-                </ul>
+                {oldComments ? (
+                    <CommentCard list={oldComments} movie={selectedMovie} />
+                ) : (
+                    <p id="missingListText">No comments yet. <br />Be the first to comment!</p>
+                )}
             </section>
         </div>
     )
 
-    
-
-   
-
     async function createNewComment() {
-        console.log("Körs");
-        await setDoc(doc(db, "cities", "LA"), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
-          });
+        const textInput = document.getElementById('textInputField');
+        let text = textInput.value.replace(/\s/g, "");
 
-        /*const textInput = document.getElementById('textInputField');
-
-        if (textInput.value == '') {
+        if (text == '') {
             textInput.placeholder = "Field can't be empty!"
         } else {
             textInput.placeholder = "Your thoughts..."
+            const movieRef = doc(db, "movies", String(selectedMovie.id));
 
-            // Create new list item
-            const newText = document.createElement("li");
-            newText.innerHTML = textInput.value
-
-            // Push new item to list
-            document.getElementById("commentList").prepend(newText)
-            textInput.value = ''*/
+            setDoc(movieRef, {
+                [text]: { 'vote': 0 }
+            }, { merge: true });
+            textInput.value = ''
         }
-    
+    }
 
-    function appendFirestoreData(selectedMovie) {
-        console.log('Movie id to fetch chat from:', selectedMovie.id);
-        // Todo
+    function loadOldCommentSection(oldList) {
+        let oldCommentList = [];
+
+        for (let [key, name] of Object.entries(oldList)) {
+            oldCommentList.push([key, name.vote])
+        }
+
+        setOldComments(oldCommentList);
     }
 }
 
