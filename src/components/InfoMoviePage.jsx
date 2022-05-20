@@ -39,19 +39,20 @@ const InfoMoviePage = ({ activeMovie }) => {
         console.log("renderTrailer", trailer)
         const key = trailer ? trailer.key : currentMovie.videos.results[0].key
         return (
-            <YouTube
-                containerClassName='youtube'
-                videoId={key}
-                opts={{
-                    width: "60%",
-                    height: "370px",
-                    playerVars: {
-                        autoplay: 1
+            <div id="trailer">
+                <YouTube
+                    containerClassName='youtube'
+                    videoId={key}
+                    opts={{
+                        width: "60%",
+                        height: "390px",
+                        playerVars: {
+                            autoplay: 1
+                        }
                     }
-                }
-
-                }
-            />
+                    }
+                />
+            </div>
         )
     }
 
@@ -70,9 +71,9 @@ const InfoMoviePage = ({ activeMovie }) => {
 
     return (
         <div id='infoMoviePage'>
-            <div id='trailer'>
-                {currentMovie.videos && playerTrailer ? renderTrailer() : null}
-            </div>
+
+            {currentMovie.videos && playerTrailer ? renderTrailer() : null}
+
             <section id='infoMovieContainer'>
                 <p>{activeMovie.vote_average}</p>
                 <img src={picturePath + activeMovie.poster_path} />
