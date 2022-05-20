@@ -69,22 +69,22 @@
   margin: 3rem 0;
 }
 
- #trailer{
+#trailer {
   position: absolute;
   left: 5%;
   right: 5%;
   top: 20%;
   bottom: 0;
-  height: 330px;
+  height: 350px;
 
 }
 
-@media screen and (max-width: 500px){
-  #trailer{
-    height: 100px;
+@media screen and (max-width: 500px) {
+  #trailer {
     left: 0;
     right: 0;
-    height: 200px;
+    top: 25%;
+    height: 100px;
   }
 }
 
