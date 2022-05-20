@@ -56,3 +56,75 @@
         font-size: 0.8rem;
     }
 }
+
+#creditForm{
+    background-color: #282C34;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 1rem;
+    border-radius: 10px;   
+}
+
+.form-name{
+    padding-bottom: 1rem;
+
+}
+
+.firstname{
+    margin: 0.5rem;
+   
+    padding: 2px;
+    background-color: white;
+}
+
+.lastname{
+    
+    padding: 2px;
+    background-color: white;
+    margin: 0.5rem;
+}
+
+.cardnumber{
+    
+    padding: 2px;
+    width: 19rem;
+    background-color: white;
+}
+
+.cvc{
+   width: 60px;
+    padding: 2px;
+    background-color: white;
+    margin-left: 0.5rem;
+
+}
+
+.month{
+    
+    padding: 2px;
+    background-color: white;
+    width: 15rem;
+}
+
+
+.form-cardnumber{
+    padding-bottom: 1rem;
+}
+
+.pay-button{
+    background-color: white;
+    padding: 1rem;
+    width: 10rem;
+    max-width: 1200px;
+    margin-top: 15px;
+    border-radius: 10px; 
+}
+
+.pay-button:hover{
+
+    background-color: green;
+}
+
+.credit-header{
+    color: white;
+}
