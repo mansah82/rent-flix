@@ -38,6 +38,7 @@ const InfoMoviePage = ({ activeMovie }) => {
     const renderTrailer = () => {
         const trailer = currentMovie.videos.results.find(vid => vid.name === "Official Trailer")
         console.log("renderTrailer", trailer)
+        if (trailer == undefined) return
         const key = trailer ? trailer.key : currentMovie.videos.results[0].key
         return (
             <div id="trailer">

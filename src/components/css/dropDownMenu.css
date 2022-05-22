@@ -1,3 +1,10 @@
+.div-search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dropButton {
   background-color: salmon;
   border: none;
@@ -7,6 +14,11 @@
   font-size: 1rem;
   border-radius: 10px 0 0 10px;
   color: white;
+}
+
+#rightBarSection {
+  position: absolute;
+  right: 0;
 }
 
 .dropMenu {
@@ -19,7 +31,7 @@
   background-color: white;
   min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 10px 0 0 10px;
   right: 0px;
   top: 82px;
   padding-bottom: 0.5rem;
@@ -86,22 +98,67 @@
   color: black;
 }
 
+#nextPageContainer {
+  background-color: rgb(0, 0, 0, 0.25);
+  display: inline-flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 4px;
+}
+
+#nextPageContainer button {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 8px;
+  transition: 0.2s ease-out;
+  background-color: salmon;
+  color: white;
+  border-radius: 10px;
+  border: 0;
+  height: 40px;
+  width: 40px;
+  font-size: 1.5rem;
+}
+
+#nextPageContainer p {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+}
+
+#nextPageContainer button:hover {
+  background-color: rgb(250, 128, 114, 0.6);
+}
+
 @media screen and (max-width: 900px) {
-  .dropButton {
-    float: left;
+  #nextPageContainer {
+    display: block;
+    padding: 0.5rem;
+  }
+
+  #nextPageContainer p {
+    font-size: 1.5rem;
+  }
+
+  #nextPageContainer button {
+    transform: rotate(90deg);
+  }
+
+  #nextPageContainer {
+    transform: rotate(180deg);
+  }
+
+  #nextPageContainer p {
+    transform: rotate(180deg);
+  }
+
+
+  .div-search {
+    justify-content: flex-start;
   }
 
   .dropContent {
-    right: auto;
-    left: 0px;
-  }
-
-  .dropButton {
-    border-radius: 0 10px 10px 0;
-  }
-
-  .input {
-    border-radius: 0 10px 10px 0;
+    right: 0;
   }
 
   .input, .dropButton {
@@ -124,5 +181,4 @@
   .dropContent {
     top: 74px;
   }
-
 }

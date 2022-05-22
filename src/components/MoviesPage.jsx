@@ -60,6 +60,7 @@ const MoviesPage = ({ setMovie }) => {
                 <div id='movieContainer'>
                     {movieListContent}
                 </div >
+                <hr id='endLine'></hr>
             </section>
         </div>
     )
