@@ -7,21 +7,23 @@
 }
 
 #rentedMoviesContainer {
-    background-color: white;
-    
+    background-color: rgb(0, 0, 0, 0.4);
     max-width: 1200px;
-    
-    border-radius: 10px;
+    border-radius: 0.5rem;
 }
 
 #rentedMoviesContainer {
     padding: 1rem;
+    color: white;
 }
 
 .rentedMovie {
     display: flex;
     background-color: #282C34;
-    border-top: 1px solid white;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+
 }
 
 .rentedMovie:first-child {
@@ -31,24 +33,37 @@
 #rentTotal {
     float: right;
     padding-top: 1rem;
+    margin-right: 0.5rem;
     color: red;
+    font-weight: bold;
 }
 
 .rentTitle {
     font-weight: normal;
+    margin: auto 0;
 }
 
 .rentPrice {
     border-left: 3px solid salmon;
-    margin-left: auto;
     width: 70px;
-   
-   
+    margin-left: auto;
 }
 
 .rentedMovie p {
     padding: 1rem;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rentTitle, .rentedMovie p {
+    font-weight: bold;
+}
+
+.cartImages {
+    background-color: red;
+    width: 100px;
 }
 
 @media screen and (max-width: 600px) {
@@ -57,74 +72,74 @@
     }
 }
 
-#creditForm{
+#creditForm {
     background-color: #282C34;
     padding: 2rem;
     max-width: 1200px;
     margin: 1rem;
-    border-radius: 10px;   
+    border-radius: 10px;
 }
 
-.form-name{
+.form-name {
     padding-bottom: 1rem;
 
 }
 
-.firstname{
+.firstname {
     margin: 0.5rem;
-   
+
     padding: 2px;
     background-color: white;
 }
 
-.lastname{
-    
+.lastname {
+
     padding: 2px;
     background-color: white;
     margin: 0.5rem;
 }
 
-.cardnumber{
-    
+.cardnumber {
+
     padding: 2px;
     width: 19rem;
     background-color: white;
 }
 
-.cvc{
-   width: 60px;
+.cvc {
+    width: 60px;
     padding: 2px;
     background-color: white;
     margin-left: 0.5rem;
 
 }
 
-.month{
-    
+.month {
+
     padding: 2px;
     background-color: white;
     width: 15rem;
 }
 
 
-.form-cardnumber{
+.form-cardnumber {
     padding-bottom: 1rem;
 }
 
-.pay-button{
+.pay-button {
     background-color: white;
     padding: 1rem;
     width: 10rem;
     max-width: 1200px;
     margin-top: 15px;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
-.pay-button:hover{
+.pay-button:hover {
 
     background-color: green;
 }
 
-.credit-header{
+.credit-header {
     color: white;
 }
