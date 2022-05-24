@@ -8,11 +8,12 @@ import { useState } from 'react';
 
 const ShoppingCart = () => {
     const movie = useSelector(state => state.movieList.rentedMovies);
+    const picturePath = "https://image.tmdb.org/t/p/w500/";
     let listOfRentedMovies = null;
-   
 
 
-  let price = movie.map(movie => {
+
+    let price = movie.map(movie => {
         if (movie.vote_average >= 8) {
             return 49
         } else if (movie.vote_average >= 7) {
@@ -30,7 +31,7 @@ const ShoppingCart = () => {
 
     switch (movie.length > 0) {
         case false: {
-            listOfRentedMovies = 'No current movies'
+            listOfRentedMovies = 'Your cart is empty! Please rent some movies.'
             break
         }
 
@@ -38,6 +39,7 @@ const ShoppingCart = () => {
             console.log('Showing movies...');
             listOfRentedMovies = movie.map((movie, index) => (
                 <li key={movie.id} className="rentedMovie">
+                    <img className='cartImages' src={picturePath + movie.poster_path} />
                     <p className='rentTitle'>{movie.title}</p>
                     <p className='rentPrice'>{price[index]}</p>
                 </li>
@@ -52,21 +54,21 @@ const ShoppingCart = () => {
         <div id='shoppingCartPage'>
             <section id='rentedMoviesContainer'>
                 {listOfRentedMovies}
-                {movie.length > 0 ? <p id='rentTotal'>Total: {sum} Kr</p> : null}
+                {movie.length > 0 ? <p id='rentTotal'>Total: {sum}$</p> : null}
             </section>
 
             <section id='creditForm'>
                 <div className='form-name' >
                     <h3 className='credit-header'>Credit Card</h3>
-                    <input type="text" placeholder='First name' className='firstname' id='firstname'  />
-                    <input type="text" placeholder='Last name' className='lastname' id='lastname'/>
+                    <input type="text" placeholder='First name' className='firstname' id='firstname' />
+                    <input type="text" placeholder='Last name' className='lastname' id='lastname' />
                 </div>
 
                 <div className='form-cardnumber'>
-                    <input type="number" placeholder='xxxx xxxx xxxx xxxx'  className='cardnumber' id='cardnumber' />
+                    <input type="number" placeholder='xxxx xxxx xxxx xxxx' className='cardnumber' id='cardnumber' />
                 </div>
                 <div className='form-cvc'>
-                    <input type="month" className='month' id='month'/>
+                    <input type="month" className='month' id='month' />
                     <input type="number" placeholder='cvc' className='cvc' id='cvc' />
                 </div>
 
@@ -81,16 +83,16 @@ const ShoppingCart = () => {
 
 
 
-function checkIfValid(){
-    const firstName = document.getElementById("firstname")
-    const lastName = document.getElementById("lastname")
-    const cardnumber = document.getElementById("cardnumber")
-    const cvc = document.getElementById("cvc")
-    const month = document.getElementById("month")
+    function checkIfValid() {
+        const firstName = document.getElementById("firstname")
+        const lastName = document.getElementById("lastname")
+        const cardnumber = document.getElementById("cardnumber")
+        const cvc = document.getElementById("cvc")
+        const month = document.getElementById("month")
 
-   
-    
-    if(cardnumber.value.length != 16) {
+
+
+        if (cardnumber.value.length != 16) {
 
             toast.error('Cardnumber incorrect', {
                 position: "bottom-center",
@@ -102,20 +104,20 @@ function checkIfValid(){
                 progress: undefined,
             });
 
-        }else if(firstName.value == "",
-                 lastName.value == ""){
-                    
-                toast.error('Type in your name', {
-                     position: "bottom-center",
-                     autoClose: 2000,
-                     hideProgressBar: true,
-                     closeOnClick: true,
-                     pauseOnHover: true,
-                     draggable: true,
-                     progress: undefined,
-                    });
+        } else if (firstName.value == "",
+            lastName.value == "") {
 
-        }else if(cvc.value.length != 3){
+            toast.error('Type in your name', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+        } else if (cvc.value.length != 3) {
 
             toast.error('CVC incorrect', {
                 position: "bottom-center",
@@ -126,8 +128,8 @@ function checkIfValid(){
                 draggable: true,
                 progress: undefined,
             });
-        
-        }else if(month.value == ""){
+
+        } else if (month.value == "") {
 
 
             toast.error('Select correct month and year', {
@@ -141,22 +143,22 @@ function checkIfValid(){
             });
 
 
-        }else{
+        } else {
 
             console.log(month.value)
-        
-        toast.success('Payment Successfull', {
-            position: "bottom-center",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
 
+            toast.success('Payment Successfull', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+        }
     }
-}
 
 
 }
