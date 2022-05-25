@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/rent-flix/static/css/main.e55f4b89.css",
-    "main.js": "/rent-flix/static/js/main.c1c8f1e1.js",
+    "main.js": "/rent-flix/static/js/main.d31874a9.js",
     "static/js/787.d9f29634.chunk.js": "/rent-flix/static/js/787.d9f29634.chunk.js",
     "static/media/background.jpg": "/rent-flix/static/media/background.3e3ac3fe4fcba04688ea.jpg",
     "static/media/logo.png": "/rent-flix/static/media/logo.c7bfe5ad98ae39f60833.png",
     "index.html": "/rent-flix/index.html",
     "main.e55f4b89.css.map": "/rent-flix/static/css/main.e55f4b89.css.map",
-    "main.c1c8f1e1.js.map": "/rent-flix/static/js/main.c1c8f1e1.js.map",
+    "main.d31874a9.js.map": "/rent-flix/static/js/main.d31874a9.js.map",
     "787.d9f29634.chunk.js.map": "/rent-flix/static/js/787.d9f29634.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e55f4b89.css",
-    "static/js/main.c1c8f1e1.js"
+    "static/js/main.d31874a9.js"
   ]
 }
