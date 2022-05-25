@@ -50,7 +50,7 @@ const CommentSection = ({ selectedMovie }) => {
 
     async function createNewComment() {
         const textInput = document.getElementById('textInputField');
-        let text = textInput.value.replace(/\s/g, "");
+        let text = textInput.value;
 
         if (text == '') {
             textInput.placeholder = "Field can't be empty!"
